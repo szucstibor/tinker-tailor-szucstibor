@@ -4,14 +4,19 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        List players = new ArrayList();
-        for (int playerNumber = 1; playerNumber < 1024; playerNumber++) {
-            players.add(playerNumber);
-        }
+        List players = makePlayerList(5);
         game(players ,3);
         System.out.println("The winner is player "+players.get(0));
 
 
+    }
+
+    private static List makePlayerList(int numOfPlayers) {
+        List players = new ArrayList();
+        for (int playerNumber = 1; playerNumber < numOfPlayers + 1; playerNumber++) {
+            players.add(playerNumber);
+        }
+        return players;
     }
 
     public static List game(List players, int knockoutNumber) {
